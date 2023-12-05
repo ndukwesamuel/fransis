@@ -11,8 +11,7 @@ import { RegionList, RegionMap } from '../../style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { regionFilterData, regionGetData } from '../../../../redux/chartContent/actionCreator';
 
-const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
-
+const geoUrl = 'https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json';
 
 const moreContent = (
   <>
@@ -54,7 +53,7 @@ const regionColumns = [
 
 function SessionsbyRegion() {
   const dispatch = useDispatch();
-  const { regionState } = useSelector(state => {
+  const { regionState } = useSelector((state) => {
     return {
       regionState: state.chartContent.regionData,
       lpIsLoading: state.chartContent.lpLoading,
@@ -82,7 +81,7 @@ function SessionsbyRegion() {
       });
     });
 
-  const handleActiveChangeRegion = value => {
+  const handleActiveChangeRegion = (value) => {
     setState({
       ...state,
       region: value,
@@ -105,7 +104,7 @@ function SessionsbyRegion() {
 
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
   const [content, setContent] = useState('');
-  const rounded = num => {
+  const rounded = (num) => {
     if (num > 1000000000) {
       return `${Math.round(num / 100000000) / 10}Bn`;
     }
@@ -114,15 +113,15 @@ function SessionsbyRegion() {
     }
     return `${Math.round(num / 100) / 10}K`;
   };
-  function handleZoomIn() {
-    if (position.zoom >= 4) return;
-    setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
-  }
+  // function handleZoomIn() {
+  //   if (position.zoom >= 4) return;
+  //   setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+  // }
 
-  function handleZoomOut() {
-    if (position.zoom <= 1) return;
-    setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
-  }
+  // function handleZoomOut() {
+  //   if (position.zoom <= 1) return;
+  //   setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+  // }
 
   function handleMoveEnd(pos) {
     setPosition(pos);
@@ -178,7 +177,7 @@ function SessionsbyRegion() {
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>
                     {({ geographies }) =>
-                      geographies.map(geo => (
+                      geographies.map((geo) => (
                         <Geography
                           key={geo.rsmKey}
                           geography={geo}
@@ -214,7 +213,7 @@ function SessionsbyRegion() {
               </ComposableMap>
 
               <div className="controls">
-                <button type="button" onClick={handleZoomIn}>
+                {/* <button type="button" onClick={handleZoomIn}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -226,8 +225,8 @@ function SessionsbyRegion() {
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <line x1="5" y1="12" x2="19" y2="12" />
                   </svg>
-                </button>
-                <button type="button" onClick={handleZoomOut}>
+                </button> */}
+                {/* <button type="button" onClick={handleZoomOut}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -238,7 +237,7 @@ function SessionsbyRegion() {
                   >
                     <line x1="5" y1="12" x2="19" y2="12" />
                   </svg>
-                </button>
+                </button> */}
               </div>
             </div>
           </RegionMap>

@@ -17,7 +17,7 @@ import 'antd/dist/antd.less';
 const { theme } = config;
 
 const ProviderConfig = () => {
-  const { rtl, isLoggedIn, topMenu, darkMode, auth } = useSelector(state => {
+  const { rtl, isLoggedIn, topMenu, darkMode, auth } = useSelector((state) => {
     return {
       darkMode: state.ChangeLayoutMode.data,
       rtl: state.ChangeLayoutMode.rtlData,
@@ -58,7 +58,7 @@ const ProviderConfig = () => {
       </ThemeProvider>
     </ConfigProvider>
   );
-}
+};
 
 function App() {
   return (

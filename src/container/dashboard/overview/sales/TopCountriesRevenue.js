@@ -8,11 +8,11 @@ import { LocationMapWrapper } from '../../style';
 import { locationGetData } from '../../../../redux/chartContent/actionCreator';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 
-const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+const geoUrl = 'https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json';
 
 function TopCountriesRevenue() {
   const dispatch = useDispatch();
-  const { locationState, topMenu } = useSelector(state => {
+  const { locationState, topMenu } = useSelector((state) => {
     return {
       locationState: state.chartContent.locationData,
       topMenu: state.ChangeLayoutMode.topMenu,
@@ -42,7 +42,7 @@ function TopCountriesRevenue() {
   const locationData = [];
 
   if (locationState !== null) {
-    locationState.map(value => {
+    locationState.map((value) => {
       const { key, location, revenue } = value;
       return locationData.push({
         key,
@@ -68,7 +68,7 @@ function TopCountriesRevenue() {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
   const [content, setContent] = useState('');
 
-  const rounded = num => {
+  const rounded = (num) => {
     if (num > 1000000000) {
       return `${Math.round(num / 100000000) / 10}Bn`;
     }
@@ -78,15 +78,15 @@ function TopCountriesRevenue() {
     return `${Math.round(num / 100) / 10}K`;
   };
 
-  function handleZoomIn() {
-    if (position.zoom >= 4) return;
-    setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
-  }
+  // function handleZoomIn() {
+  //   if (position.zoom >= 4) return;
+  //   setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+  // }
 
-  function handleZoomOut() {
-    if (position.zoom <= 1) return;
-    setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
-  }
+  // function handleZoomOut() {
+  //   if (position.zoom <= 1) return;
+  //   setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+  // }
 
   function handleMoveEnd(pos) {
     setPosition(pos);
@@ -120,7 +120,7 @@ function TopCountriesRevenue() {
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>
                     {({ geographies }) =>
-                      geographies.map(geo => (
+                      geographies.map((geo) => (
                         <Geography
                           key={geo.rsmKey}
                           geography={geo}
@@ -162,7 +162,7 @@ function TopCountriesRevenue() {
                 </ZoomableGroup>
               </ComposableMap>
 
-              <div className="controls">
+              {/* <div className="controls">
                 <button type="button" onClick={handleZoomIn}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@ function TopCountriesRevenue() {
                     <line x1="5" y1="12" x2="19" y2="12" />
                   </svg>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 

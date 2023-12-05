@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
+// import { FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { AuthWrapper } from './style';
 import { Checkbox } from '../../../../components/checkbox/checkbox';
@@ -74,14 +74,14 @@ function SignUp() {
               </a>
             </li>
             <li>
-              <a className="facebook-sign" href="/">
+              {/* <a className="facebook-sign" href="/">
                 <FacebookOutlined />
-              </a>
+              </a> */}
             </li>
             <li>
-              <a className="twitter-sign" href="/">
+              {/* <a className="twitter-sign" href="/">
                 <TwitterOutlined />
-              </a>
+              </a> */}
             </li>
           </ul>
         </Form>

@@ -6,9 +6,7 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
 
-const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
-
-
+const geoUrl = 'https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json';
 
 function VectorMaps() {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
@@ -22,15 +20,15 @@ function VectorMaps() {
     }
     return `${Math.round(num / 100) / 10}K`;
   };
-  function handleZoomIn() {
-    if (position.zoom >= 4) return;
-    setPosition((pos) => ({ ...pos, zoom: pos.zoom * 2 }));
-  }
+  // function handleZoomIn() {
+  //   if (position.zoom >= 4) return;
+  //   setPosition((pos) => ({ ...pos, zoom: pos.zoom * 2 }));
+  // }
 
-  function handleZoomOut() {
-    if (position.zoom <= 1) return;
-    setPosition((pos) => ({ ...pos, zoom: pos.zoom / 2 }));
-  }
+  // function handleZoomOut() {
+  //   if (position.zoom <= 1) return;
+  //   setPosition((pos) => ({ ...pos, zoom: pos.zoom / 2 }));
+  // }
 
   function handleMoveEnd(pos) {
     setPosition(pos);
@@ -92,7 +90,7 @@ function VectorMaps() {
                   </ComposableMap>
 
                   <div className="controls">
-                    <button type="button" onClick={handleZoomIn}>
+                    {/* <button type="button" onClick={handleZoomIn}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -116,7 +114,7 @@ function VectorMaps() {
                       >
                         <line x1="5" y1="12" x2="19" y2="12" />
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </Cards>
